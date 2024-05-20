@@ -849,7 +849,7 @@ class TestBuilder(object):
         else:
             languages = self.languages
             if (self.add_cpp_locals_extra_tests and 'cpp' in languages and
-                    'cpp' in tags['tag'] and not 'no-cpp-locals' in tags['tag']):
+                    'cpp' in tags['tag'] and 'no-cpp-locals' not in tags['tag']):
                 extra_directives_list.append({'cpp_locals': True})
 
         if 'c' in languages and skip_c(tags):
@@ -1975,11 +1975,11 @@ def collect_doctests(path, module_prefix, suite, selectors, exclude_selectors):
         filename, ext = os.path.splitext(filename)
         excludelist = ['libcython', 'libpython', 'test_libcython_in_gdb',
                        'TestLibCython']
-        return (ext == '.py' and not
-                '~' in filename and not
-                '#' in filename and not
-                filename.startswith('.') and not
-                filename in excludelist)
+        return (ext == '.py' and
+                '~' not in filename and
+                '#' not in filename and
+                not filename.startswith('.') and
+                filename not in excludelist)
 
     import doctest
     from importlib import import_module
