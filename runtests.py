@@ -2235,7 +2235,7 @@ class EmbedTest(unittest.TestCase):
         try:
             os.system(
                 "make PYTHON='%s' clean > /dev/null" % sys.executable)
-        except:
+        except Exception:
             pass
         os.chdir(self.old_dir)
 

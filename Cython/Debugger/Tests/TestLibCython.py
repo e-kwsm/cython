@@ -155,7 +155,7 @@ class DebuggerTestCase(TimedTest):
                 # cmdclass=dict(build_ext=Cython.Distutils.build_ext)
             # )
 
-        except:
+        except Exception:
             os.chdir(self.cwd)
             raise
 
@@ -239,9 +239,9 @@ class GdbDebuggerTestCase(DebuggerTestCase):
             super().tearDown()
             if self.p:
                 try: self.p.stdout.close()
-                except: pass
+                except Exception: pass
                 try: self.p.stderr.close()
-                except: pass
+                except Exception: pass
                 self.p.wait()
         finally:
             os.remove(self.gdb_command_file)
