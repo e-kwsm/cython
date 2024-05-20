@@ -374,7 +374,7 @@ class SimpleAssignmentTypeInferer:
         enabled = scope.directives['infer_types']
         verbose = scope.directives['infer_types.verbose']
 
-        if enabled == True:
+        if enabled is True:
             spanning_type = aggressive_spanning_type
         elif enabled is None:  # safe mode
             spanning_type = safe_spanning_type

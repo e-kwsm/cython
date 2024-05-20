@@ -550,7 +550,7 @@ def empty_declare():
     ]
 
     r2.is_integral = True
-    assert r2.is_integral == True
+    assert r2.is_integral
 
     r3.x = 12.3
     assert r3.x == 12.3
@@ -558,7 +558,7 @@ def empty_declare():
     #It generates a correct C code, but raises an exception when interpreted
     if cython.compiled:
         r4[0].is_integral = True
-        assert r4[0].is_integral == True
+        assert r4[0].is_integral
 
     r5[0] = 42
     assert r5[0] == 42

@@ -27,7 +27,7 @@ class TypedExprNode(ExprNodes.ExprNode):
         self._may_be_none = may_be_none
 
     def may_be_none(self):
-        return self._may_be_none != False
+        return self._may_be_none is not False
 
 # Fake rhs to silence "unused variable" warning
 fake_rhs_expr = TypedExprNode(PyrexTypes.unspecified_type)
