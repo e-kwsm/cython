@@ -1080,7 +1080,7 @@ class PyBytesObjectPtr(PyObjectPtr):
         # Transliteration of Python 3's Objects/bytesobject.c:PyBytes_Repr
         # to Python 2 code:
         quote = "'"
-        if "'" in proxy and not '"' in proxy:
+        if "'" in proxy and '"' not in proxy:
             quote = '"'
         out.write('b')
         out.write(quote)
