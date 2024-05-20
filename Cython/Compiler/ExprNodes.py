@@ -2220,7 +2220,7 @@ class NameNode(AtomicExprNode):
                 modifiers, atype = annotation.analyse_type_annotation(env)
 
             if atype is None:
-                atype = unspecified_type if as_target and env.directives['infer_types'] != False else py_object_type
+                atype = unspecified_type if as_target and env.directives['infer_types'] else py_object_type
             elif atype.is_fused and env.fused_to_specific:
                 try:
                     atype = atype.specialize(env.fused_to_specific)
@@ -2343,7 +2343,7 @@ class NameNode(AtomicExprNode):
         if not self.entry:
             if env.directives['warn.undeclared']:
                 warning(self.pos, "implicit declaration of '%s'" % self.name, 1)
-            if env.directives['infer_types'] != False:
+            if env.directives['infer_types']:
                 type = unspecified_type
             else:
                 type = py_object_type
