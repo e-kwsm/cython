@@ -265,7 +265,7 @@ class TestDebugTransform(DebuggerTestCase):
             self.assertEqual(2, len(spam_stepinto))
             assert 'puts' in spam_stepinto
             assert 'some_c_function' in spam_stepinto
-        except:
+        except AssertionError:
             f = open(self.debug_dest)
             try:
                 print(f.read())
