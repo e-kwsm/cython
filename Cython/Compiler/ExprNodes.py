@@ -13742,7 +13742,7 @@ class CmpNode:
         operand2_result = self.operand2.constant_result
         if (isinstance(operand1_result, any_string_type) and
                 isinstance(operand2_result, any_string_type) and
-                type(operand1_result) != type(operand2_result)):
+                type(operand1_result) is not type(operand2_result)):
             # string comparison of different types isn't portable
             return
 
